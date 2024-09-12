@@ -14,9 +14,6 @@ FROM openjdk:17-jdk-slim
 # Copia el JAR compilado al contenedor
 COPY --from=builder /app/target/*.jar /app/app.jar
 
-# Copia el archivo de configuración al contenedor
-#COPY dev.jvm.conf /app/
-
 # Establece las variables de entorno para la configuración de JVM
 #ENV JAVA_TOOL_OPTIONS="-XX:+UseSerialGC -Xss512k -XX:MaxRAM=200m"
 

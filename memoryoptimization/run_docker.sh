@@ -23,8 +23,8 @@ if [ "$(docker ps -aq -f status=exited -f name=$CONTAINER_NAME)" ]; then
 fi
 
 # Ejecutar el contenedor
-echo "Ejecutando el contenedor..."
-docker run -d --name $CONTAINER_NAME -p 8080:8080 $IMAGE_NAME
+#echo "Ejecutando el contenedor..."
+#docker run -d --name $CONTAINER_NAME -p 8080:8080 $IMAGE_NAME
 
 # Mensaje de éxito
-echo "La aplicación está corriendo en http://localhost:8080"
+#echo "La aplicación está corriendo en http://localhost:8080"
