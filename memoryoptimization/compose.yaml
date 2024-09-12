@@ -1,0 +1,7 @@
+services:
+  memory-optimization-container-v2:
+    image: memory-optimization:latest
+    env_file:
+      - dev.jvm.conf
+    ports:
+      - "8090:8080"
