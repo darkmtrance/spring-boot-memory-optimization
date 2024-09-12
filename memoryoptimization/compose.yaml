@@ -1,8 +1,6 @@
 services:
   memory-optimization-container-v1:
     image: memory-optimization:latest
-    env_file:
-      - dev.jvm.conf
     ports:
       - "8081:8080"
   memory-optimization-container-v2:
