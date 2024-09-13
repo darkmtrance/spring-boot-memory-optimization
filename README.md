@@ -29,3 +29,31 @@ SPRING_MAIN_LAZY_INITIALIZATION=true
 # Configuraciones de JVM
 JAVA_TOOL_OPTIONS=-XX:+UseSerialGC -Xss512k -XX:MaxRAM=200m
 
+```
+
+### 2. Creación de imagen
+
+Para construir la imagen de Docker de la aplicación, ejecuta el siguiente comando en la ruta del proyecto **memoryoptimization**:
+
+```bash
+./run_docker.sh
+```
+
+### 3. Ejecución de compose
+
+Para iniciar los contenedores utilizando Docker Compose, puedes usar los siguientes comandos:
+
+```bash
+# Iniciar los contenedores en segundo plano
+docker compose up -d
+
+# Detener y eliminar los contenedores
+docker compose down
+
+# Iniciar contenedores con un archivo de configuración específico
+docker compose -f compose-optimization.yaml up -d
+
+# Detener y eliminar contenedores de un archivo de configuración específico
+docker compose -f compose-optimization.yaml down
+
+```
