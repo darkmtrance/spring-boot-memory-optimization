@@ -1,0 +1,28 @@
+services:
+  memory-optimization-container-v1:
+    image: memory-optimization:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'  # Limitar a 0.5 CPU
+          memory: 512M  # Limitar a 512 MiB
+        reservations:
+          cpus: '0.2'  # Reservar 0.2 CPU
+          memory: 256M  # Reservar 256 MiB
+    ports:
+      - "8081:8080"
+  memory-optimization-container-v2:
+    image: memory-optimization:latest
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'  # Limitar a 0.5 CPU
+          memory: 512M  # Limitar a 512 MiB
+        reservations:
+          cpus: '0.2'  # Reservar 0.2 CPU
+          memory: 256M  # Reservar 256 MiB
+    env_file:
+      - dev.jvm.conf
+    ports:
+      - "8082:8080"
+  
