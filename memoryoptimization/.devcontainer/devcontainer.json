@@ -1,0 +1,14 @@
+{
+    "name": "GraalVM 17 DevContainer",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "settings": {
+        "java.home": "/usr/lib/jvm/graalvm"
+    },
+    "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-pack"
+    ],
+    "postCreateCommand": "gu install native-image"
+}
