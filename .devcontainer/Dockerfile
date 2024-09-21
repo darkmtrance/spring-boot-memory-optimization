@@ -1,8 +1,4 @@
-FROM oracle/graalvm-ce:latest
+FROM ghcr.io/graalvm/graalvm-ce:ol7-java17-22.3.3
 WORKDIR /opt/graalvm
 RUN gu install native-image
-RUN gu install r
-RUN gu install python
-RUN gu install ruby
-RUN gu install wasm
 ENTRYPOINT ["native-image"]
