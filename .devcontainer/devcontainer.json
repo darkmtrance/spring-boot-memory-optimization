@@ -1,11 +1,11 @@
 {
-    "name": "GraalVM Java 17 Codespace",
-    "image": "ghcr.io/graalvm/jdk:java17-22.3.0",
+    "name": "GraalVM",
+    "dockerFile": "Dockerfile",
     "settings": {
-        "java.home": "/usr/lib/jvm/graalvm"
+      "terminal.integrated.shell.linux": "/bin/bash"
     },
+    "forwardPorts": [3000],
     "extensions": [
-        "vscjava.vscode-java-pack"
-    ],
-    "postCreateCommand": "gu install native-image"
-}
+          "vscjava.vscode-java-pack", "dbaeumer.vscode-eslint", "ms-python.python", "rebornix.ruby", "ikuyadeu.r"
+      ]
+  }
