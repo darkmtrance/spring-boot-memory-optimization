@@ -57,3 +57,18 @@ docker compose -f compose-optimization.yaml up -d
 docker compose -f compose-optimization.yaml down
 
 ```
+
+### 4. Ejecución de nativo
+
+Referencia [spring-native-intro](https://www.baeldung.com/spring-native-intro)
+
+```bash
+# Generacion de binario nativo
+mvn clean package -Pnative
+
+# Generacion de imagen del binario nativo
+./run_docker.sh
+
+# Inicio contenedor
+docker compose up -d
+```
