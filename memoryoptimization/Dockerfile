@@ -1,24 +1,11 @@
-# Utiliza una imagen base de Java 17
-FROM openjdk:17-jdk-slim as builder
+# Etapa de producción: crea una imagen ligera
+FROM gcr.io/distroless/base
 
-# Copia el código fuente al contenedor
-COPY . /app
-WORKDIR /app
-
-# Compila el proyecto usando Maven
-RUN ./mvnw clean package -DskipTests
-
-# Crea una imagen más pequeña para el entorno de producción
-FROM openjdk:17-jdk-slim
-
-# Copia el JAR compilado al contenedor
-COPY --from=builder /app/target/*.jar /app/app.jar
-
-# Establece las variables de entorno para la configuración de JVM
-#ENV JAVA_TOOL_OPTIONS="-XX:+UseSerialGC -Xss512k -XX:MaxRAM=200m"
+# Copia el ejecutable nativo desde la etapa de construcción
+COPY /target/memoryoptimization.exe /app/memoryoptimization.exe
 
 # Expone el puerto 8080 para la aplicación
 EXPOSE 8080
 
-# Establece el comando de inicio para ejecutar la aplicación
-ENTRYPOINT ["java", "-jar", "/app/app.jar"]
+# Comando para ejecutar la aplicación
+CMD ["/app/memoryoptimizationnative"]
