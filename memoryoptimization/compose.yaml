@@ -1,12 +1,21 @@
 services:
   memory-optimization-container-v1:
     image: memory-optimization:latest
+    container_name: memory-optimization-container-v1
     ports:
       - "8081:8080"
   memory-optimization-container-v2:
     image: memory-optimization:latest
+    container_name: memory-optimization-container-v2
     env_file:
       - dev.jvm.conf
     ports:
       - "8082:8080"
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090" 
   
